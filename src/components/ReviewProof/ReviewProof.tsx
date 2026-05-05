@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { ImageWithLoader } from '@/components/MediaLoader/MediaLoader';
 
 type Props = {
   id: string;
@@ -36,7 +37,11 @@ export function ReviewProof({ id, name, screenshotSrc }: Props) {
             />
           </div>
           <div className="modal-body">
-            <img src={screenshotSrc} alt={`Скрин отзыва: ${name}`} />
+            <ImageWithLoader
+              src={screenshotSrc}
+              alt={`Скрин отзыва: ${name}`}
+              loaderLabel="Загрузка скрина"
+            />
           </div>
         </div>
       </div>
@@ -52,10 +57,11 @@ export function ReviewProof({ id, name, screenshotSrc }: Props) {
         data-bs-target={`#${id}`}
         aria-label={`Открыть скрин отзыва: ${name}`}
       >
-        <img
+        <ImageWithLoader
           src={screenshotSrc}
           alt={`Скрин отзыва: ${name}`}
           loading="lazy"
+          loaderLabel="Загрузка скрина"
           onError={() => setImageReady(false)}
         />
         <span className="reviews__proofOverlay">Открыть скрин</span>

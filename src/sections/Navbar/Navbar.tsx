@@ -28,9 +28,14 @@ export function Navbar() {
           </div>
 
           <div className="navwrap__actions">
-            <Link className="btn btn-primary navwrap__cta" href="/#contacts">
+            <a
+              className="btn btn-primary navwrap__cta"
+              href="https://t.me/Vera37467"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Записаться
-            </Link>
+            </a>
           </div>
 
           <button
@@ -53,9 +58,14 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link className="btn btn-primary navwrap__mobileCta" href="/#contacts">
+            <a
+              className="btn btn-primary navwrap__mobileCta"
+              href="https://t.me/Vera37467"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Записаться
-            </Link>
+            </a>
           </div>
         </div>
       </nav>

@@ -1,3 +1,4 @@
+import { ImageWithLoader } from '@/components/MediaLoader/MediaLoader';
 import { publicPath } from '@/lib/publicPath';
 
 export function About() {
@@ -9,10 +10,11 @@ export function About() {
         <div className="row g-4 align-items-start">
           <div className="col-12 col-md-5 col-lg-4">
             <figure className="about__photo card-glass">
-              <img
+              <ImageWithLoader
                 src={publicPath('/about/about.jpg')}
                 alt="Мелкова Вера Александровна"
                 loading="lazy"
+                loaderLabel="Загрузка фото"
               />
             </figure>
           </div>

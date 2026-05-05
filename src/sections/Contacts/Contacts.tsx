@@ -9,17 +9,19 @@ export function Contacts() {
           </p>
 
           <div className="contacts__actions">
-            <a className="btn btn-primary btn-lg" href="#">
+            <a
+              className="btn btn-primary btn-lg"
+              href="https://t.me/Vera37467"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Telegram
             </a>
-            <a className="btn btn-outline-secondary btn-lg" href="#">
+
+            <a className="btn btn-outline-secondary btn-lg" href="tel:+79529871480">
               Позвонить
             </a>
           </div>
-
-          <p className="contacts__hint">
-            (Ссылки заменим на реальные контакты мамы)
-          </p>
         </div>
       </div>
     </section>

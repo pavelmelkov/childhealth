@@ -52,7 +52,7 @@
 
   &__cert .about__photo {
     aspect-ratio: auto;
-    min-height: 0;
+    min-height: 160px;
     background: rgba(0, 0, 0, 0.2);
   }
 
@@ -103,6 +103,11 @@
     object-fit: contain;
   }
 
+  &__cert .about__photo .mediaLoader {
+    min-height: inherit;
+    border-radius: inherit;
+  }
+
   &__cert--featured .about__photo img {
     max-height: 820px;
   }
@@ -143,6 +148,17 @@
     background: rgba(0, 0, 0, 0.28);
   }
 
+  &__certModalContent .mediaLoader {
+    width: min(620px, calc(100vw - 64px));
+    min-height: min(70vh, 620px);
+    border-radius: 10px;
+  }
+
+  &__certModalContent .mediaLoader img {
+    margin: 0 auto;
+  }
+
+  &__video .mediaLoader,
   &__video video {
     display: block;
     width: 100%;
@@ -151,6 +167,10 @@
     object-fit: contain;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.35);
+  }
+
+  &__video .mediaLoader {
+    min-height: 180px;
   }
 
   &__videoTitle {
@@ -322,6 +342,11 @@
       width: auto;
       max-width: calc(100vw - 40px);
       max-height: calc(100dvh - 130px);
+    }
+
+    &__certModalContent .mediaLoader {
+      width: calc(100vw - 40px);
+      min-height: min(62vh, 520px);
     }
 
     &__badge {

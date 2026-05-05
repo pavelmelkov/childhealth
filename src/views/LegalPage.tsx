@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ImageWithLoader, VideoWithLoader } from '@/components/MediaLoader/MediaLoader';
 import { publicPath } from '@/lib/publicPath';
 
 type Certificate = {
@@ -90,10 +91,11 @@ export default function LegalPage() {
                   aria-label={`Увеличить ${certificate.label.toLowerCase()}`}
                 >
                   <figure className="about__photo card-glass">
-                    <img
+                    <ImageWithLoader
                       src={certificate.src}
                       alt={`Мелкова Вера Александровна, ${certificate.label.toLowerCase()}`}
                       loading="lazy"
+                      loaderLabel="Загрузка сертификата"
                     />
                   </figure>
                   <span className="docs__certTitle">{certificate.label}</span>
@@ -113,15 +115,15 @@ export default function LegalPage() {
           <div className="docs__grid">
             <div className="docs__video">
               <div className="docs__videoTitle">Видео 1</div>
-              <video controls src={publicPath('/media/Timeline_3.mp4')} />
+              <VideoWithLoader controls preload="metadata" src={publicPath('/media/Timeline_3.mp4')} />
             </div>
             <div className="docs__video">
               <div className="docs__videoTitle">Видео 2</div>
-              <video controls src={publicPath('/media/Timeline_2.mov')} />
+              <VideoWithLoader controls preload="metadata" src={publicPath('/media/Timeline_2.mov')} />
             </div>
             <div className="docs__video">
               <div className="docs__videoTitle">Видео 3</div>
-              <video controls src={publicPath('/media/Timeline_1.mov')} />
+              <VideoWithLoader controls preload="metadata" src={publicPath('/media/Timeline_1.mov')} />
             </div>
           </div>
         </section>
@@ -186,9 +188,10 @@ export default function LegalPage() {
                 />
               </div>
               <div className="modal-body">
-                <img
+                <ImageWithLoader
                   src={certificate.src}
                   alt={`Мелкова Вера Александровна, ${certificate.label.toLowerCase()}`}
+                  loaderLabel="Загрузка сертификата"
                 />
               </div>
             </div>
