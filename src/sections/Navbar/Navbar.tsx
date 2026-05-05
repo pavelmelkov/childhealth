@@ -54,12 +54,20 @@ export function Navbar() {
 
           <div className="collapse navwrap__mobileMenu" id="mainNavMenu">
             {NAV_LINKS.map((link) => (
-              <Link className="navwrap__mobileLink" href={link.href} key={`${link.href}-mobile`}>
+              <Link
+                className="navwrap__mobileLink"
+                data-bs-target="#mainNavMenu"
+                data-bs-toggle="collapse"
+                href={link.href}
+                key={`${link.href}-mobile`}
+              >
                 {link.label}
               </Link>
             ))}
             <a
               className="btn btn-primary navwrap__mobileCta"
+              data-bs-target="#mainNavMenu"
+              data-bs-toggle="collapse"
               href="https://t.me/Vera37467"
               target="_blank"
               rel="noopener noreferrer"
