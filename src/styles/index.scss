@@ -38,6 +38,7 @@
 html,
 body {
   overflow-x: hidden;
+  background-color: var(--bg-0);
 }
 
 section[id],
@@ -74,6 +75,11 @@ body::before {
 
 html {
   scroll-behavior: smooth;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100dvh;
 }
 
 /* чтобы Bootstrap-контейнер выглядел ровно на всех ширинах */
@@ -181,6 +187,12 @@ section, header {
 .text-blend {
   color: rgba(15,23,42,0.9);
   mix-blend-mode: multiply;
+}
+
+@media (max-width: 991.98px) {
+  body {
+    background-attachment: scroll;
+  }
 }
 
 @media (max-width: 767.98px) {

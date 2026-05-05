@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 
 const NAV_LINKS = [
   { href: '/#services', label: 'Форматы' },
@@ -10,6 +13,12 @@ const NAV_LINKS = [
 ];
 
 export function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="navwrap">
       <nav className="navwrap__bar">
@@ -41,10 +50,9 @@ export function Navbar() {
           <button
             className="navwrap__burger"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavMenu"
+            onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
             aria-controls="mainNavMenu"
-            aria-expanded="false"
+            aria-expanded={isMenuOpen}
             aria-label="Открыть меню"
           >
             <span />
@@ -52,25 +60,23 @@ export function Navbar() {
             <span />
           </button>
 
-          <div className="collapse navwrap__mobileMenu" id="mainNavMenu">
+          <div className={`collapse navwrap__mobileMenu${isMenuOpen ? ' show' : ''}`} id="mainNavMenu">
             {NAV_LINKS.map((link) => (
               <Link
                 className="navwrap__mobileLink"
-                data-bs-target="#mainNavMenu"
-                data-bs-toggle="collapse"
                 href={link.href}
                 key={`${link.href}-mobile`}
+                onClick={closeMenu}
               >
                 {link.label}
               </Link>
             ))}
             <a
               className="btn btn-primary navwrap__mobileCta"
-              data-bs-target="#mainNavMenu"
-              data-bs-toggle="collapse"
               href="https://t.me/Vera37467"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={closeMenu}
             >
               Записаться
             </a>
