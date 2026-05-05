@@ -27,6 +27,22 @@ const ignoredPaths = [
 
 const normalizedIgnoredPaths = ignoredPaths.map((ignoredPath) => path.normalize(ignoredPath));
 
+function getBasePath() {
+  if (process.env.NEXT_PUBLIC_BASE_PATH) {
+    return process.env.NEXT_PUBLIC_BASE_PATH;
+  }
+
+  const repositoryName = process.env.GITHUB_REPOSITORY?.split('/').at(-1);
+
+  if (!repositoryName || repositoryName.endsWith('.github.io')) {
+    return '';
+  }
+
+  return `/${repositoryName}`;
+}
+
+const basePath = getBasePath();
+
 function shouldCopy(source) {
   const relativePath = path.relative(projectRoot, source);
 
@@ -47,6 +63,7 @@ function run(command, args, cwd) {
       env: {
         ...process.env,
         GITHUB_PAGES: 'true',
+        NEXT_PUBLIC_BASE_PATH: basePath,
       },
       stdio: 'inherit',
     });
@@ -62,6 +79,8 @@ function run(command, args, cwd) {
 }
 
 try {
+  console.log(`Building GitHub Pages export with base path: ${basePath || '/'}`);
+
   await rm(worktree, { recursive: true, force: true });
   await cp(projectRoot, worktree, {
     recursive: true,
