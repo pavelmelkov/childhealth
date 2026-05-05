@@ -108,7 +108,7 @@ export default function LegalPage() {
         <section className="docs__section card-glass">
           <h2 className="docs__h2">Видео с занятий (лица размыты)</h2>
           <p className="docs__p">
-            Публикуются только при наличии письменного согласия
+            Публикуются только при наличии согласия
             родителей/законных представителей.
           </p>
 
