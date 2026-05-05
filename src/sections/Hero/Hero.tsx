@@ -1,4 +1,6 @@
 import { InfoModal } from '../../components/InfoModal/InfoModal';
+import { ImageWithLoader } from '@/components/MediaLoader/MediaLoader';
+import { publicPath } from '@/lib/publicPath';
 
 export function Hero() {
   return (
@@ -37,17 +39,18 @@ export function Hero() {
         </div>
 
         <div className="hero__visual">
-          <div className="hero__card card-glass">
-            <div className="hero__cardTitle">Первый шаг - спокойная диагностика запроса</div>
-            <div className="hero__cardText">
-              Вы рассказываете, что беспокоит: моторика, речь, внимание, поведение,
-              обучение или усталость. После этого я подсказываю, какой формат работы
-              может быть уместен.
-            </div>
-            <a className="btn btn-success" href="#contacts">
-              Написать
-            </a>
-          </div>
+          <figure className="hero__portrait card-glass">
+            <ImageWithLoader
+              src={publicPath('/about/about.jpg')}
+              alt="Мелкова Вера Александровна"
+              loading="eager"
+              loaderLabel="Загрузка фото"
+            />
+            <figcaption className="hero__portraitCaption">
+              <span>Вера Мелкова</span>
+              <small>нейропсихологическая поддержка детей</small>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </header>
