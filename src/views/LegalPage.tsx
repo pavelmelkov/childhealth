@@ -39,13 +39,13 @@ const CERTIFICATES: Certificate[] = [
     id: 'cert5Modal',
     title: 'Сертификат 5',
     label: 'Нейропсихологические и логопедические технологии',
-    src: publicPath('/docs/sert5.png'),
+    src: publicPath('/docs/sert5.jpg'),
   },
   {
     id: 'cert6Modal',
     title: 'Сертификат 6',
     label: 'INPP: нейромоторная готовность к обучению',
-    src: publicPath('/docs/sert6.png'),
+    src: publicPath('/docs/sert6.jpg'),
     featured: true,
   },
 ];
@@ -119,11 +119,11 @@ export default function LegalPage() {
             </div>
             <div className="docs__video">
               <div className="docs__videoTitle">Видео 2</div>
-              <VideoWithLoader controls preload="metadata" src={publicPath('/media/Timeline_2.mov')} />
+              <VideoWithLoader controls preload="metadata" src={publicPath('/media/Timeline_2.mp4')} />
             </div>
             <div className="docs__video">
               <div className="docs__videoTitle">Видео 3</div>
-              <VideoWithLoader controls preload="metadata" src={publicPath('/media/Timeline_1.mov')} />
+              <VideoWithLoader controls preload="metadata" src={publicPath('/media/Timeline_1.mp4')} />
             </div>
           </div>
         </section>
