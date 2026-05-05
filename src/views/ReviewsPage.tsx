@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ReviewProof } from '@/components/ReviewProof/ReviewProof';
+import { publicPath } from '@/lib/publicPath';
 
 type Review = {
   name: string;
@@ -90,7 +91,7 @@ export default function ReviewsPage() {
               <ReviewProof
                 id={`reviewProof${idx + 1}`}
                 name={r.name}
-                screenshotSrc={`/reviews/review-${idx + 1}.jpg`}
+                screenshotSrc={publicPath(`/reviews/review-${idx + 1}.jpg`)}
               />
             </article>
           ))}

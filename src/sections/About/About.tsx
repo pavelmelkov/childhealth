@@ -1,3 +1,5 @@
+import { publicPath } from '@/lib/publicPath';
+
 export function About() {
   return (
     <section className="about" id="about">
@@ -8,7 +10,7 @@ export function About() {
           <div className="col-12 col-md-5 col-lg-4">
             <figure className="about__photo card-glass">
               <img
-                src="/about/about.jpg"
+                src={publicPath('/about/about.jpg')}
                 alt="Мелкова Вера Александровна"
                 loading="lazy"
               />

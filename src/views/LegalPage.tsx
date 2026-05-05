@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { publicPath } from '@/lib/publicPath';
 
 type Certificate = {
   id: string;
@@ -13,37 +14,37 @@ const CERTIFICATES: Certificate[] = [
     id: 'cert1Modal',
     title: 'Сертификат 1',
     label: 'Психомоторная нейропсихологическая коррекция',
-    src: '/docs/sert1.jpg',
+    src: publicPath('/docs/sert1.jpg'),
   },
   {
     id: 'cert2Modal',
     title: 'Сертификат 2',
     label: 'Метод сохранения: телесно-ориентированная терапия',
-    src: '/docs/sert2.jpg',
+    src: publicPath('/docs/sert2.jpg'),
   },
   {
     id: 'cert3Modal',
     title: 'Сертификат 3',
     label: 'Массаж шейно-воротниковой зоны и точечный массаж в логопедии',
-    src: '/docs/sert3.jpg',
+    src: publicPath('/docs/sert3.jpg'),
   },
   {
     id: 'cert4Modal',
     title: 'Сертификат 4',
     label: 'Диагностика и интеграция примитивных рефлексов',
-    src: '/docs/sert4.jpg',
+    src: publicPath('/docs/sert4.jpg'),
   },
   {
     id: 'cert5Modal',
     title: 'Сертификат 5',
     label: 'Нейропсихологические и логопедические технологии',
-    src: '/docs/sert5.png',
+    src: publicPath('/docs/sert5.png'),
   },
   {
     id: 'cert6Modal',
     title: 'Сертификат 6',
     label: 'INPP: нейромоторная готовность к обучению',
-    src: '/docs/sert6.png',
+    src: publicPath('/docs/sert6.png'),
     featured: true,
   },
 ];
@@ -66,7 +67,7 @@ export default function LegalPage() {
             переносы/отмена, ответственность, порядок оказания услуг, контакты
             исполнителя.
           </p>
-          <a className="btn btn-primary" href="/docs/oferta.pdf" download>
+          <a className="btn btn-primary" href={publicPath('/docs/oferta.pdf')} download>
             Скачать PDF оферты
           </a>
         </section> */}
@@ -112,15 +113,15 @@ export default function LegalPage() {
           <div className="docs__grid">
             <div className="docs__video">
               <div className="docs__videoTitle">Видео 1</div>
-              <video controls src="/media/Timeline_3.mp4" />
+              <video controls src={publicPath('/media/Timeline_3.mp4')} />
             </div>
             <div className="docs__video">
               <div className="docs__videoTitle">Видео 2</div>
-              <video controls src="/media/Timeline_2.mov" />
+              <video controls src={publicPath('/media/Timeline_2.mov')} />
             </div>
             <div className="docs__video">
               <div className="docs__videoTitle">Видео 3</div>
-              <video controls src="/media/Timeline_1.mov" />
+              <video controls src={publicPath('/media/Timeline_1.mov')} />
             </div>
           </div>
         </section>
@@ -141,7 +142,7 @@ export default function LegalPage() {
               <div className="docs__itemTitle">Согласие на обработку ПДн</div>
               <div className="docs__itemText" />
               <div className="docs__itemActions">
-                <a className="btn btn-outline-light btn-sm" href="/docs/consent_pd.pdf" download>
+                <a className="btn btn-outline-light btn-sm" href={publicPath('/docs/consent_pd.pdf')} download>
                   Скачать PDF
                 </a>
               </div>
@@ -153,7 +154,7 @@ export default function LegalPage() {
                 В процессе занятий с целью фиксации прогресса
               </div>
               <div className="docs__itemActions">
-                <a className="btn btn-outline-light btn-sm" href="/docs/consent_media.pdf" download>
+                <a className="btn btn-outline-light btn-sm" href={publicPath('/docs/consent_media.pdf')} download>
                   Скачать PDF
                 </a>
               </div>
