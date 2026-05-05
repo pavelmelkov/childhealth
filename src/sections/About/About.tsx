@@ -1,6 +1,3 @@
-import { ImageWithLoader } from '@/components/MediaLoader/MediaLoader';
-import { publicPath } from '@/lib/publicPath';
-
 export function About() {
   return (
     <section className="about" id="about">
@@ -8,18 +5,7 @@ export function About() {
         <h2 className="about__title">О специалисте</h2>
 
         <div className="row g-4 align-items-start">
-          <div className="col-12 col-md-5 col-lg-4">
-            <figure className="about__photo card-glass">
-              <ImageWithLoader
-                src={publicPath('/about/about.jpg')}
-                alt="Мелкова Вера Александровна"
-                loading="lazy"
-                loaderLabel="Загрузка фото"
-              />
-            </figure>
-          </div>
-
-          <div className="col-12 col-md-7 col-lg-5">
+          <div className="col-12 col-lg-7">
             <p className="about__lead">
               Меня зовут Мелкова Вера Александровна. Я работаю с детьми через
               нейропсихологическую, психомоторную и сенсорно-двигательную коррекцию.
@@ -42,8 +28,16 @@ export function About() {
             </p>
           </div>
 
-          <div className="col-12 col-lg-3">
+          <div className="col-12 col-lg-5">
             <div className="about__card card-glass">
+              <h3 className="about__cardTitle">Обучение и подход</h3>
+
+              <p className="about__cardText">
+                В работе используется метод замещающего онтогенеза: занятия выстраиваются
+                последовательно, от базовых телесных и двигательных уровней к более сложным
+                навыкам внимания, речи, координации и обучения.
+              </p>
+
               <ul className="about__list">
                 <li><strong>Направления:</strong> нейрокоррекция, сенсомоторика, нейромоторика</li>
                 <li><strong>В работе:</strong> баланс, координация, рефлексы, телесные упражнения</li>
