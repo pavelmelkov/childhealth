@@ -12,11 +12,19 @@
 @use '../views/NotFoundPage';
 
 :root {
-  --bg-0: #0b1220;
-  --bg-1: #0e1a2b;
+  --bg-0: #08111f;
+  --bg-1: #101928;
+  --bg-2: #14251f;
+  --surface: rgba(255, 255, 255, 0.095);
+  --surface-strong: rgba(255, 255, 255, 0.14);
+  --stroke: rgba(255, 255, 255, 0.17);
+  --stroke-strong: rgba(255, 255, 255, 0.28);
   --glow-a: rgba(99, 102, 241, 0.35);  /* индиго */
   --glow-b: rgba(34, 197, 94, 0.25);   /* зелёный */
   --glow-c: rgba(56, 189, 248, 0.18);  /* голубой */
+  --accent-warm: #f0b08f;
+  --accent-mint: #7ddfc3;
+  --accent-blue: #8fb8ff;
   --text: rgba(255, 255, 255, 0.92);
   --nav-offset: 96px;
 }
@@ -41,11 +49,27 @@ header[id],
 body {
   color: var(--text);
   background:
-    radial-gradient(1200px 800px at 15% 10%, var(--glow-a), transparent 55%),
-    radial-gradient(900px 700px at 85% 20%, var(--glow-b), transparent 55%),
-    radial-gradient(1100px 900px at 55% 90%, var(--glow-c), transparent 55%),
-    linear-gradient(180deg, var(--bg-0), var(--bg-1));
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(900px 600px at 16% 8%, var(--glow-a), transparent 62%),
+    radial-gradient(780px 560px at 86% 12%, var(--glow-b), transparent 60%),
+    radial-gradient(820px 620px at 54% 92%, var(--glow-c), transparent 60%),
+    linear-gradient(140deg, var(--bg-0), var(--bg-1) 48%, var(--bg-2));
+  background-attachment: fixed;
+  background-size: 42px 42px, 42px 42px, auto, auto, auto, auto;
   min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 18%, transparent 74%, rgba(0, 0, 0, 0.18)),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.13), transparent 34%);
+  mix-blend-mode: screen;
 }
 
 html {
@@ -98,16 +122,22 @@ section, header {
 }
 
 /* если на карточке есть card-glass — используем его */
+.card-glass,
 .hero__card.card-glass,
 .services__card.card-glass,
 .contacts__box.card-glass {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07)),
+    var(--surface);
+  border: 1px solid var(--stroke);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   color: rgba(255, 255, 255, 0.92);
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
   will-change: transform;
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.11) inset;
 }
 
 .hero__card.card-glass p,
@@ -118,11 +148,13 @@ section, header {
 }
 .card-glass:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--stroke-strong);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08)),
+    var(--surface-strong);
   box-shadow:
-    0 22px 55px rgba(0, 0, 0, 0.36),
-    0 0 0 1px rgba(99, 102, 241, 0.10) inset;
+    0 24px 64px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(143, 184, 255, 0.12) inset;
 }
 
 /* Если карточка кликабельная (ссылка/кнопка внутри), сделаем фокус тоже красивым */

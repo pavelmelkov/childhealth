@@ -1,5 +1,5 @@
 .process {
-  padding: 20px 0;
+  padding: 34px 0;
 
   &__title {
     font-weight: 800;
@@ -14,8 +14,18 @@
 
   &__card {
     height: 100%;
-    padding: 18px;
+    position: relative;
+    padding: 20px;
     border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__card::after {
+    content: '';
+    position: absolute;
+    inset: auto 18px 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(125, 223, 195, 0.6), transparent);
   }
 
   &__step {
@@ -25,9 +35,11 @@
     display: grid;
     place-items: center;
     font-weight: 800;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgba(8, 17, 31, 0.92);
+    background: linear-gradient(135deg, var(--accent-mint), var(--accent-blue));
+    border: 1px solid rgba(255, 255, 255, 0.24);
     margin-bottom: 10px;
+    box-shadow: 0 12px 28px rgba(83, 178, 207, 0.18);
   }
 
   &__cardTitle {

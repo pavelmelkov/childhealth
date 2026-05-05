@@ -1,5 +1,5 @@
 .docs {
-  padding: 40px 0 70px;
+  padding: 46px 0 76px;
 
   &__top {
     display: flex;
@@ -15,27 +15,43 @@
   }
 
   &__section {
-    padding: 18px;
-    margin-top: 14px;
+    position: relative;
+    padding: 20px;
+    margin-top: 16px;
+    overflow: hidden;
+  }
+
+  &__section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(520px 180px at 0% 0%, rgba(143, 184, 255, 0.1), transparent 72%),
+      radial-gradient(520px 180px at 100% 100%, rgba(125, 223, 195, 0.08), transparent 72%);
   }
 
   &__h2 {
+    position: relative;
     margin: 0 0 8px;
     font-weight: 800;
   }
 
   &__p {
+    position: relative;
     margin: 0 0 12px;
     opacity: 0.8;
   }
 
   &__clickHint {
+    position: relative;
     margin: 0 0 12px;
     color: rgba(255, 255, 255, 0.72);
     font-size: 14px;
   }
 
   &__grid {
+    position: relative;
     display: grid;
     gap: 12px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -45,9 +61,17 @@
   &__video {
     border-radius: 14px;
     padding: 14px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.13);
     overflow: hidden;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  }
+
+  &__cert:hover,
+  &__video:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.095);
   }
 
   &__cert .about__photo {

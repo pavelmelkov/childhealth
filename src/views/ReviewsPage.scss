@@ -1,5 +1,5 @@
 .reviews {
-  padding: 40px 0 70px;
+  padding: 46px 0 76px;
 
   &__top {
     display: flex;
@@ -38,11 +38,22 @@
   }
 
   &__card {
+    position: relative;
     padding: 18px;
     border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(145deg, rgba(143, 184, 255, 0.08), transparent 46%, rgba(240, 176, 143, 0.06));
   }
 
   &__meta {
+    position: relative;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -62,6 +73,7 @@
   }
 
   &__badge {
+    position: relative;
     display: inline-block;
     margin-bottom: 10px;
     padding: 6px 10px;
@@ -73,12 +85,14 @@
   }
 
   &__text {
+    position: relative;
     margin: 0;
     opacity: 0.85;
     line-height: 1.55;
   }
 
   &__proof {
+    position: relative;
     margin-top: 14px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -189,7 +203,10 @@
   &__note {
     margin-top: 16px;
     padding: 18px;
-    border-radius: 16px;
+    border-radius: 18px;
+    background:
+      linear-gradient(145deg, rgba(125, 223, 195, 0.12), rgba(143, 184, 255, 0.08)),
+      rgba(255, 255, 255, 0.08);
   }
 
   &__noteTitle {
