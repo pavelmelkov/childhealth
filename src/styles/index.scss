@@ -1,0 +1,173 @@
+@use './modal-neuro';
+@use './auth-dashboard';
+@use '../sections/Navbar/Navbar';
+@use '../sections/Hero/Hero';
+@use '../sections/About/About';
+@use '../sections/Services/Services';
+@use '../sections/Process/Process';
+@use '../sections/Contacts/Contacts';
+@use '../views/LegalPage';
+@use '../views/ReviewsPage';
+@use '../views/NotFoundPage';
+
+:root {
+  --bg-0: #0b1220;
+  --bg-1: #0e1a2b;
+  --glow-a: rgba(99, 102, 241, 0.35);  /* индиго */
+  --glow-b: rgba(34, 197, 94, 0.25);   /* зелёный */
+  --glow-c: rgba(56, 189, 248, 0.18);  /* голубой */
+  --text: rgba(255, 255, 255, 0.92);
+  --nav-offset: 96px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+section[id],
+header[id],
+[id="top"] {
+  scroll-margin-top: var(--nav-offset);
+}
+
+body {
+  color: var(--text);
+  background:
+    radial-gradient(1200px 800px at 15% 10%, var(--glow-a), transparent 55%),
+    radial-gradient(900px 700px at 85% 20%, var(--glow-b), transparent 55%),
+    radial-gradient(1100px 900px at 55% 90%, var(--glow-c), transparent 55%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1));
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* чтобы Bootstrap-контейнер выглядел ровно на всех ширинах */
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+.btn {
+  white-space: normal;
+}
+
+/* чтобы секции не "липли" к верхней кромке */
+section, header {
+  width: 100%;
+}
+
+// .card-light {
+//   background: rgba(255, 255, 255, 0.96);
+//   color: #0f172a; /* тёмный (почти чёрный) */
+//   border: 1px solid rgba(15, 23, 42, 0.08);
+//   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+// }
+
+// .card-light p,
+// .card-light li,
+// .card-light small {
+//   color: rgba(15, 23, 42, 0.78); /* аккуратный серый для вторичного текста */
+// }
+
+// .card-light a {
+//   color: inherit;
+// }
+
+/* glass card (универсальный) */
+/* базовые стили карточек (без background/color) */
+.hero__card,
+.services__card {
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* если на карточке есть card-glass — используем его */
+.hero__card.card-glass,
+.services__card.card-glass,
+.contacts__box.card-glass {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, 0.92);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+  will-change: transform;
+}
+
+.hero__card.card-glass p,
+.services__card.card-glass p,
+.hero__card.card-glass li,
+.services__card.card-glass li {
+  color: rgba(255, 255, 255, 0.78);
+}
+.card-glass:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.36),
+    0 0 0 1px rgba(99, 102, 241, 0.10) inset;
+}
+
+/* Если карточка кликабельная (ссылка/кнопка внутри), сделаем фокус тоже красивым */
+.card-glass:focus-within {
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.36),
+    0 0 0 3px rgba(59, 130, 246, 0.22);
+}
+
+/* Микроэффект: чуть “подсветить” номер шага в Process */
+.process__card:hover .process__step {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.text-glass {
+  background: linear-gradient(90deg, rgba(15,23,42,0.95), rgba(15,23,42,0.55));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-blend {
+  color: rgba(15,23,42,0.9);
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 767.98px) {
+  :root {
+    --nav-offset: 82px;
+  }
+
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .card-glass:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

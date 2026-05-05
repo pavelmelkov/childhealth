@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1777965379604,
+      "tag": "0000_omniscient_mongu",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1777969177602,
+      "tag": "0001_sharp_random",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1777970291096,
+      "tag": "0002_famous_boomer",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1777971493637,
+      "tag": "0003_far_dragon_lord",
+      "breakpoints": true
+    }
+  ]
+}

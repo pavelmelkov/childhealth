@@ -1,0 +1,156 @@
+.hero {
+  padding: 36px 0 28px;
+
+  &__inner {
+    display: grid;
+    gap: 24px;
+
+    @media (min-width: 992px) {
+      grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.85fr);
+      align-items: center;
+    }
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: #f1f3f5;
+    margin: 0 0 12px;
+    font-size: 16px;
+    color: black;
+  }
+
+  &__title {
+    margin: 0 0 12px;
+    max-width: 860px;
+    line-height: 1.08;
+    font-weight: 850;
+  }
+
+  &__subtitle {
+    margin: 0 0 20px;
+    max-width: 780px;
+    font-size: 18px;
+    line-height: 1.55;
+    opacity: 0.85;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  &__info {
+    flex-basis: 100%;
+  }
+
+  &__facts {
+    margin: 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 8px;
+    max-width: 760px;
+    opacity: 0.9;
+  }
+
+  &__visual {
+    display: grid;
+    place-items: stretch;
+  }
+
+  &__card {
+    width: 100%;
+    border-radius: 16px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  &__cardTitle {
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  &__cardText {
+    opacity: 0.82;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 991.98px) {
+    padding: 28px 0 24px;
+
+    &__inner {
+      gap: 18px;
+    }
+
+    &__title {
+      font-size: 33px;
+    }
+
+    &__subtitle {
+      font-size: 17px;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 22px 0 18px;
+
+    &__badge {
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    &__title {
+      font-size: 24px;
+      line-height: 1.12;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    &__actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    &__actions .btn,
+    &__card .btn {
+      width: 100%;
+    }
+
+    &__facts {
+      padding-left: 16px;
+      gap: 7px;
+      font-size: 15px;
+    }
+
+    &__card {
+      padding: 16px;
+      border-radius: 14px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    &__title {
+      font-size: 18px;
+    }
+
+    &__subtitle,
+    &__facts {
+      font-size: 14px;
+    }
+
+    &__card {
+      padding: 14px;
+    }
+  }
+}

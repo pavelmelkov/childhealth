@@ -1,0 +1,48 @@
+{
+  "name": "landing",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "eslint .",
+    "start": "next start",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "seed:admin": "tsx scripts/seed-admin.ts",
+    "db:smoke": "tsx scripts/smoke-db.ts"
+  },
+  "dependencies": {
+    "@auth/drizzle-adapter": "^1.11.2",
+    "bcryptjs": "^3.0.3",
+    "bootstrap": "^5.3.8",
+    "drizzle-orm": "^0.45.2",
+    "next": "^16.0.0",
+    "next-auth": "^4.24.14",
+    "postgres": "^3.4.9",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "web-push": "^3.6.7",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/web-push": "^3.6.4",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
+    "@typescript-eslint/parser": "^8.56.0",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9.39.3",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "sass": "^1.97.3",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.56.0"
+  }
+}
