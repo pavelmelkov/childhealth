@@ -32,6 +32,10 @@ function getBasePath() {
     return process.env.NEXT_PUBLIC_BASE_PATH;
   }
 
+  if (existsSync(path.join(projectRoot, 'public', 'CNAME'))) {
+    return '';
+  }
+
   const repositoryName = process.env.GITHUB_REPOSITORY?.split('/').at(-1);
 
   if (!repositoryName || repositoryName.endsWith('.github.io')) {
