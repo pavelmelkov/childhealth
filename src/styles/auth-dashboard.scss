@@ -640,26 +640,54 @@
 @media (max-width: 767.98px) {
   .auth,
   .dashboard {
-    padding: 28px 0 48px;
+    padding: 22px 0 42px;
+  }
+
+  .auth__eyebrow,
+  .dashboard__eyebrow {
+    margin-bottom: 6px;
+    font-size: 12px;
   }
 
   .auth__title,
   .dashboard__title {
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  .auth__text,
+  .dashboard__text {
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   .auth__form,
   .dashboard__card {
-    padding: 16px;
+    padding: 14px;
     border-radius: 14px;
   }
 
   .dashboard__top {
     flex-direction: column;
+    gap: 12px;
+    margin-bottom: 14px;
   }
 
   .dashboard__top .btn {
     width: 100%;
+  }
+
+  .dashboard__cardTitle {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .dashboard__success,
+  .dashboard__error {
+    margin-top: 10px;
+    padding: 9px 10px;
+    font-size: 13px;
   }
 
   .dashboard__grid {
@@ -673,6 +701,9 @@
 
   .dashboard__listItem {
     flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 12px;
   }
 
   .dashboard__bookingRow {
@@ -697,8 +728,22 @@
     justify-content: flex-start;
   }
 
+  .dashboard__pill {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .dashboard__muted {
+    font-size: 13px;
+  }
+
   .bookingCalendar__head {
-    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bookingCalendar__month {
+    font-size: 13px;
   }
 
   .bookingCalendar__weekdays,
@@ -707,9 +752,24 @@
   }
 
   .bookingCalendar__day {
-    min-height: 52px;
+    min-height: 50px;
     border-radius: 10px;
-    padding: 7px;
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .bookingCalendar__day small {
+    padding: 2px 6px;
+    font-size: 11px;
+  }
+
+  .bookingCalendar__slots {
+    padding-top: 12px;
+  }
+
+  .bookingCalendar__slotsTitle {
+    margin-bottom: 8px;
+    font-size: 16px;
   }
 
   .bookingCalendar__slot {
@@ -722,6 +782,9 @@
 
   .bookingCalendar__singleForm {
     grid-template-columns: 1fr;
+    gap: 9px;
+    padding: 10px;
+    border-radius: 12px;
   }
 
   .bookingCalendar__singleForm .btn {
@@ -731,6 +794,20 @@
   .bookingCalendar__selectedDate {
     align-items: flex-start;
     flex-direction: column;
+    gap: 3px;
+  }
+
+  .bookingCalendar__selectedDate strong {
+    font-size: 16px;
+  }
+
+  .bookingCalendar__selectField select,
+  .bookingCalendar__slot select,
+  .dashboard__field input,
+  .dashboard__field select,
+  .dashboard__field textarea {
+    padding: 9px 10px;
+    font-size: 14px;
   }
 
   .scheduleWeek__row {
@@ -752,12 +829,12 @@
     min-height: 44px;
     border-radius: 9px;
     padding: 5px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .bookingCalendar__day small {
     padding: 2px 5px;
-    font-size: 10px;
+    font-size: 9px;
   }
 }
 
@@ -770,6 +847,16 @@
   .bookingCalendar__day {
     min-height: 38px;
     padding: 4px;
-    font-size: 12px;
+    font-size: 11px;
+  }
+
+  .auth__title,
+  .dashboard__title {
+    font-size: 22px;
+  }
+
+  .auth__form,
+  .dashboard__card {
+    padding: 12px;
   }
 }
