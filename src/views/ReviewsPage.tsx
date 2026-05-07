@@ -67,7 +67,7 @@ export default function ReviewsPage() {
           <div>
             <h1 className="reviews__title">Отзывы родителей</h1>
             <p className="reviews__subtitle">
-              Реальные впечатления о занятиях. Формулировки можно отредактировать под оригинальные отзывы.
+              Реальные впечатления о занятиях.
             </p>
           </div>
           <div className="reviews__topActions">
