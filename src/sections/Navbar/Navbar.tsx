@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { publicPath } from '@/lib/publicPath';
 
 const NAV_LINKS = [
   { href: '/#top', label: 'Главная' },
@@ -24,8 +25,21 @@ export function Navbar() {
       <nav className="navwrap__bar">
         <div className="container navwrap__inner">
           <Link className="navwrap__brand" href="/#top">
-            <div className="navwrap__name">Мелкова Вера Александровна</div>
-            <div className="navwrap__role">Специалист по нейрокоррекции</div>
+            <picture className="navwrap__logoWrap">
+              <source
+                media="(max-width: 767.98px)"
+                srcSet={encodeURI(publicPath('/about/ChatGPT Image 9 мая 2026 г., 09_05_08.png'))}
+              />
+              <img
+                className="navwrap__logo"
+                src={publicPath('/about/logo-desktop-cropped.png')}
+                alt=""
+              />
+            </picture>
+            <div className="navwrap__brandText">
+              <div className="navwrap__name">Мелкова Вера Александровна</div>
+              <div className="navwrap__role">Специалист по нейрокоррекции</div>
+            </div>
           </Link>
 
           <div className="navwrap__links">

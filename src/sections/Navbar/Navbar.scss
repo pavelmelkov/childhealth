@@ -23,9 +23,33 @@
   }
 
   &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     min-width: 0;
+    max-width: 100%;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.92);
+  }
+
+  &__logoWrap {
+    display: block;
+    width: clamp(62px, 8vw, 148px);
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+
+  &__logo {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    object-fit: contain;
+  }
+
+  &__brandText {
+    min-width: 0;
   }
 
   &__name {
@@ -151,6 +175,26 @@
   }
 
   @media (max-width: 480px) {
+    &__brand {
+      gap: 9px;
+    }
+
+    &__logoWrap {
+      display: grid;
+      place-items: center;
+      width: clamp(44px, 13vw, 52px);
+      aspect-ratio: 1;
+      padding: 4px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    &__logo {
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
     &__name {
       font-size: 14px;
     }
