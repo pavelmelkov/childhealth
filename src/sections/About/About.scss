@@ -24,6 +24,20 @@
     line-height: 1.55;
   }
 
+  &__local {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  &__localTitle {
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 850;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
   &__card {
     padding: 18px;
     border-radius: 16px;
@@ -80,6 +94,7 @@
     }
 
     &__text,
+    &__localTitle,
     &__cardText,
     &__list {
       font-size: 15px;
@@ -98,6 +113,7 @@
 
     &__lead,
     &__text,
+    &__localTitle,
     &__cardText,
     &__list {
       font-size: 14px;

@@ -26,6 +26,28 @@ export function Services() {
               </ul>
             </div>
           </div>
+
+          <div className="col-12 col-md-6">
+            <div className="services__card card-glass">
+              <div className="services__cardTitle">Нейропсихологическая диагностика детей</div>
+              <ul className="services__list">
+                <li>Первичное знакомство с ребёнком и запросом семьи</li>
+                <li>Наблюдение за вниманием, речью, движением, координацией и поведением</li>
+                <li>Рекомендации по занятиям, домашней поддержке и дальнейшему маршруту</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="col-12 col-md-6">
+            <div className="services__card card-glass">
+              <div className="services__cardTitle">Занятия с детьми в Майкопе</div>
+              <ul className="services__list">
+                <li>Индивидуальные и групповые форматы по возрасту и состоянию ребёнка</li>
+                <li>Брифалити/BrainFit, игровые нейроупражнения и сенсомоторные задания</li>
+                <li>Понятная обратная связь родителям после занятий</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <p className="services__note">
