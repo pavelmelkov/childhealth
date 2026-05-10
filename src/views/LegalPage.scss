@@ -73,11 +73,13 @@
     position: relative;
     display: grid;
     gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    min-width: 0;
   }
 
   &__cert,
   &__video {
+    min-width: 0;
     border-radius: 14px;
     padding: 14px;
     background:
@@ -99,6 +101,7 @@
 
   &__cert .about__photo {
     aspect-ratio: auto;
+    min-width: 0;
     min-height: 160px;
     padding: 10px;
     background:
@@ -116,6 +119,7 @@
     background: transparent;
     cursor: zoom-in;
     text-align: inherit;
+    min-width: 0;
   }
 
   &__certButton:focus-visible {
@@ -136,6 +140,7 @@
     font-size: 14px;
     font-weight: 700;
     line-height: 1.35;
+    overflow-wrap: anywhere;
   }
 
   &__cert--featured {
@@ -351,7 +356,7 @@
 
     &__grid,
     &__listGrid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     &__cert,
@@ -363,7 +368,11 @@
 
     &__cert .about__photo img,
     &__cert--featured .about__photo img {
-      max-height: 72dvh;
+      max-height: 420px;
+    }
+
+    &__cert .about__photo .mediaLoader {
+      max-height: 420px;
     }
 
     &__certTitle {

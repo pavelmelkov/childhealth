@@ -51,13 +51,15 @@
   &__grid {
     display: grid;
     gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
     margin-top: 18px;
     align-items: stretch;
+    min-width: 0;
   }
 
   &__card {
     position: relative;
+    min-width: 0;
     padding: 20px;
     border-radius: 18px;
     overflow: hidden;
@@ -120,6 +122,7 @@
   &__name {
     font-weight: 900;
     color: #173b34;
+    overflow-wrap: anywhere;
   }
 
   &__child {
@@ -143,6 +146,7 @@
     color: var(--accent-ink);
     font-size: 12px;
     font-weight: 800;
+    overflow-wrap: anywhere;
   }
 
   &__text {
@@ -151,6 +155,7 @@
     margin: 0;
     color: rgba(36, 59, 53, 0.78);
     line-height: 1.55;
+    overflow-wrap: anywhere;
   }
 
   &__proof {
@@ -161,6 +166,7 @@
     background: rgba(255, 255, 255, 0.58);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
     margin-top: auto;
+    min-width: 0;
   }
 
   &__proof--empty {
@@ -182,6 +188,7 @@
     position: relative;
     display: block;
     width: 100%;
+    max-width: 100%;
     height: 160px;
     padding: 0;
     overflow: hidden;
@@ -320,7 +327,7 @@
     }
 
     &__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     &__card,
@@ -342,7 +349,7 @@
     }
 
     &__proofButton {
-      height: 180px;
+      height: 150px;
     }
 
     &__proofModal {

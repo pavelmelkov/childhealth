@@ -5,6 +5,7 @@
 @use '../sections/About/About';
 @use '../sections/Services/Services';
 @use '../sections/Process/Process';
+@use '../sections/Faq/Faq';
 @use '../sections/Contacts/Contacts';
 @use '../components/MediaLoader/MediaLoader';
 @use '../views/LegalPage';
@@ -91,6 +92,12 @@ body {
 img,
 video {
   max-width: 100%;
+}
+
+.container,
+.row,
+[class*='col-'] {
+  min-width: 0;
 }
 
 .btn {
