@@ -9,8 +9,8 @@ const NAV_LINKS = [
   { href: '/#top', label: 'Главная' },
   { href: '/#contacts', label: 'Контакты' },
   // { href: '/prices', label: 'Цены' },
-  { href: '/docs', label: 'Документы' },
-  { href: '/reviews', label: 'Отзывы' },
+  { href: '/docs/', label: 'Документы' },
+  { href: '/reviews/', label: 'Отзывы' },
   ...(CABINET_ENABLED ? [{ href: '/login', label: 'Вход' }] : []),
 ];
 

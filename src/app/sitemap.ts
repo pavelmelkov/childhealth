@@ -10,11 +10,11 @@ const routes = [
     priority: 1,
   },
   {
-    path: '/docs',
+    path: '/docs/',
     priority: 0.7,
   },
   {
-    path: '/reviews',
+    path: '/reviews/',
     priority: 0.7,
   },
 ];

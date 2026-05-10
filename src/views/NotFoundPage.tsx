@@ -12,7 +12,7 @@ export default function NotFoundPage() {
 
         <div className="nf__actions">
           <Link className="btn btn-primary" href="/">На главную</Link>
-          <Link className="btn btn-outline-secondary" href="/docs">Документы</Link>
+          <Link className="btn btn-outline-secondary" href="/docs/">Документы</Link>
         </div>
       </div>
     </main>
