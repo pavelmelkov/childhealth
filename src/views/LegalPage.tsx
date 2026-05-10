@@ -56,7 +56,7 @@ export default function LegalPage() {
       <div className="container">
         <div className="docs__top">
           <h1 className="docs__title">Документы и материалы</h1>
-          <Link className="btn btn-outline-light" href="/">
+          <Link className="btn btn-outline-secondary" href="/">
             ← На главную
           </Link>
         </div>
@@ -144,7 +144,7 @@ export default function LegalPage() {
               <div className="docs__itemTitle">Согласие на обработку ПДн</div>
               <div className="docs__itemText" />
               <div className="docs__itemActions">
-                <a className="btn btn-outline-light btn-sm" href={publicPath('/docs/consent_pd.pdf')} download>
+                <a className="btn btn-outline-secondary btn-sm" href={publicPath('/docs/consent_pd.pdf')} download>
                   Скачать PDF
                 </a>
               </div>
@@ -156,7 +156,7 @@ export default function LegalPage() {
                 В процессе занятий с целью фиксации прогресса
               </div>
               <div className="docs__itemActions">
-                <a className="btn btn-outline-light btn-sm" href={publicPath('/docs/consent_media.pdf')} download>
+                <a className="btn btn-outline-secondary btn-sm" href={publicPath('/docs/consent_media.pdf')} download>
                   Скачать PDF
                 </a>
               </div>
@@ -182,7 +182,7 @@ export default function LegalPage() {
                 </h5>
                 <button
                   type="button"
-                  className="btn-close btn-close-white"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Закрыть"
                 />

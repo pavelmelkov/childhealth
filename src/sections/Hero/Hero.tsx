@@ -32,11 +32,16 @@ export function Hero() {
             </div>
           </div>
 
-          <ul className="hero__facts">
-            <li className="hero__fact">План строится после знакомства с ребёнком и запросом семьи</li>
-            <li className="hero__fact">В фокусе: тело, движение, внимание, речь и готовность к обучению</li>
-            <li className="hero__fact">Родители получают понятную обратную связь и рекомендации для дома</li>
-          </ul>
+          <div className="hero__tips" aria-label="Особенности занятий">
+            <span className="hero__tip">Первичное знакомство</span>
+            <span className="hero__tip">Запрос семьи</span>
+            <span className="hero__tip">Индивидуальный план</span>
+            <span className="hero__tip">Тело и движение</span>
+            <span className="hero__tip">Внимание и речь</span>
+            <span className="hero__tip">Готовность к обучению</span>
+            <span className="hero__tip">Обратная связь родителям</span>
+            <span className="hero__tip">Рекомендации для дома</span>
+          </div>
         </div>
 
         <div className="hero__visual">

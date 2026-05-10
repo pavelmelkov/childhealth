@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { CABINET_ENABLED } from '@/lib/features';
 import { publicPath } from '@/lib/publicPath';
 
 const NAV_LINKS = [
@@ -10,7 +11,7 @@ const NAV_LINKS = [
   // { href: '/prices', label: 'Цены' },
   { href: '/docs', label: 'Документы' },
   { href: '/reviews', label: 'Отзывы' },
-  { href: '/login', label: 'Вход' },
+  ...(CABINET_ENABLED ? [{ href: '/login', label: 'Вход' }] : []),
 ];
 
 export function Navbar() {

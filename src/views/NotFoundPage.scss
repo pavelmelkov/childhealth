@@ -1,7 +1,19 @@
 .nf {
-  padding: 56px 0 80px;
+  position: relative;
+  padding: 70px 0 90px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(560px 260px at 50% 0%, rgba(85, 200, 166, 0.14), transparent 70%),
+      radial-gradient(460px 240px at 82% 72%, rgba(243, 154, 107, 0.1), transparent 72%);
+  }
 
   &__wrap {
+    position: relative;
     padding: 22px;
     border-radius: 18px;
     max-width: 760px;
@@ -15,17 +27,18 @@
     line-height: 1;
     letter-spacing: 0;
     margin-bottom: 8px;
-    opacity: 0.95;
+    color: rgba(85, 200, 166, 0.8);
   }
 
   &__title {
     margin: 0 0 10px;
     font-weight: 900;
+    color: #173b34;
   }
 
   &__text {
     margin: 0 0 16px;
-    opacity: 0.8;
+    color: rgba(36, 59, 53, 0.76);
   }
 
   &__actions {

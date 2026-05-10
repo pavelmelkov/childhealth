@@ -1,6 +1,6 @@
 /* 1) затемнение фона */
 .modal-backdrop.show {
-  opacity: 0.65;
+  opacity: 0.36;
 }
 
 /* 2) кастомная ширина: не растягивать */
@@ -8,15 +8,34 @@
   max-width: 880px;
 }
 
-/* 3) стеклянный контент + градиентная рамка */
+.neuro-help {
+  color: rgba(36, 59, 53, 0.72);
+  font-weight: 700;
+}
+
+.neuro-help:hover {
+  color: var(--accent-ink);
+}
+
+.neuro-help__icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 92, 79, 0.2);
+  font-size: 12px;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+/* 3) светлый контент + мягкая градиентная кромка */
 .modal-neuro__content {
   border-radius: 18px;
-  background: rgba(18, 24, 38, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(31, 92, 79, 0.14);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  color: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  color: var(--text);
+  box-shadow: 0 24px 70px rgba(56, 103, 91, 0.2);
   overflow: hidden;
   position: relative;
 }
@@ -27,15 +46,16 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(800px 200px at 25% 0%, rgba(99,102,241,0.22), transparent 60%),
-              radial-gradient(800px 200px at 85% 0%, rgba(34,197,94,0.18), transparent 60%);
-  opacity: 0.9;
+  background:
+    radial-gradient(800px 200px at 25% 0%, rgba(85, 200, 166, 0.18), transparent 60%),
+    radial-gradient(800px 200px at 85% 0%, rgba(243, 154, 107, 0.16), transparent 60%);
+  opacity: 0.95;
 }
 
 /* header/ footer аккуратнее */
 .modal-neuro__content .modal-header,
 .modal-neuro__content .modal-footer {
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(31, 92, 79, 0.12);
 }
 
 .modal-neuro__content .modal-title {
@@ -44,7 +64,7 @@
 
 /* body: более читабельная типографика */
 .modal-neuro__content .modal-body {
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(36, 59, 53, 0.8);
   line-height: 1.5;
 }
 
@@ -63,8 +83,8 @@
 /* внутренние карточки */
 .neuro-box {
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(247, 251, 248, 0.82);
+  border: 1px solid rgba(31, 92, 79, 0.12);
   padding: 14px;
 }
 

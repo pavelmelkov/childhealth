@@ -71,7 +71,7 @@ export default function ReviewsPage() {
             </p>
           </div>
           <div className="reviews__topActions">
-            <Link className="btn btn-outline-light" href="/">
+            <Link className="btn btn-outline-secondary" href="/">
               ← На главную
             </Link>
           </div>
@@ -81,8 +81,15 @@ export default function ReviewsPage() {
           {REVIEWS.map((r, idx) => (
             <article key={idx} className="reviews__card card-glass">
               <div className="reviews__meta">
-                <div className="reviews__name">{r.name}</div>
-                <div className="reviews__child">{r.child}</div>
+                <div className="reviews__person">
+                  <span className="reviews__avatar" aria-hidden="true">
+                    {idx + 1}
+                  </span>
+                  <div>
+                    <div className="reviews__name">{r.name}</div>
+                    <div className="reviews__child">{r.child}</div>
+                  </div>
+                </div>
               </div>
 
               {r.highlight ? <div className="reviews__badge">{r.highlight}</div> : null}
@@ -102,7 +109,7 @@ export default function ReviewsPage() {
           <div className="reviews__noteText">
             Можно прислать текст в Telegram — добавлю на сайт с вашего разрешения (без персональных данных ребёнка).
           </div>
-          <Link className="btn btn-outline-light" href="/#contacts">
+          <Link className="btn btn-outline-secondary" href="/#contacts">
             Перейти к контактам
           </Link>
         </div>

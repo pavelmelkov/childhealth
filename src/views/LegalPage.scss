@@ -1,5 +1,20 @@
 .docs {
-  padding: 46px 0 76px;
+  position: relative;
+  padding: 58px 0 82px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(640px 340px at 8% 8%, rgba(85, 200, 166, 0.16), transparent 68%),
+      radial-gradient(620px 320px at 92% 2%, rgba(243, 154, 107, 0.14), transparent 68%);
+  }
+
+  .container {
+    position: relative;
+  }
 
   &__top {
     display: flex;
@@ -12,12 +27,15 @@
   &__title {
     margin: 0;
     font-weight: 900;
+    color: #173b34;
+    text-wrap: balance;
   }
 
   &__section {
     position: relative;
-    padding: 20px;
-    margin-top: 16px;
+    padding: 24px;
+    margin-top: 18px;
+    border-radius: 22px;
     overflow: hidden;
   }
 
@@ -27,33 +45,34 @@
     inset: 0;
     pointer-events: none;
     background:
-      radial-gradient(520px 180px at 0% 0%, rgba(143, 184, 255, 0.1), transparent 72%),
-      radial-gradient(520px 180px at 100% 100%, rgba(125, 223, 195, 0.08), transparent 72%);
+      radial-gradient(520px 180px at 0% 0%, rgba(93, 156, 236, 0.12), transparent 72%),
+      radial-gradient(520px 180px at 100% 100%, rgba(85, 200, 166, 0.14), transparent 72%);
   }
 
   &__h2 {
     position: relative;
     margin: 0 0 8px;
     font-weight: 800;
+    color: #173b34;
   }
 
   &__p {
     position: relative;
     margin: 0 0 12px;
-    opacity: 0.8;
+    color: rgba(36, 59, 53, 0.76);
   }
 
   &__clickHint {
     position: relative;
     margin: 0 0 12px;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(36, 59, 53, 0.58);
     font-size: 14px;
   }
 
   &__grid {
     position: relative;
     display: grid;
-    gap: 12px;
+    gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 
@@ -61,23 +80,31 @@
   &__video {
     border-radius: 14px;
     padding: 14px;
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.13);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(247, 251, 248, 0.72));
+    border: 1px solid rgba(31, 92, 79, 0.12);
     overflow: hidden;
-    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    box-shadow: 0 16px 34px rgba(56, 103, 91, 0.1);
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
   }
 
   &__cert:hover,
   &__video:hover {
     transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.24);
-    background: rgba(255, 255, 255, 0.095);
+    border-color: rgba(85, 200, 166, 0.3);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 248, 0.82));
+    box-shadow: 0 22px 46px rgba(56, 103, 91, 0.15);
   }
 
   &__cert .about__photo {
     aspect-ratio: auto;
     min-height: 160px;
-    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(234, 246, 239, 0.72));
+    border: 1px solid rgba(31, 92, 79, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
 
   &__certButton {
@@ -92,20 +119,20 @@
   }
 
   &__certButton:focus-visible {
-    outline: 3px solid rgba(59, 130, 246, 0.72);
+    outline: 3px solid rgba(85, 200, 166, 0.58);
     outline-offset: 4px;
     border-radius: 14px;
   }
 
   &__certButton:hover .about__photo {
     transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.32);
+    border-color: rgba(85, 200, 166, 0.28);
   }
 
   &__certTitle {
     display: block;
     margin-top: 10px;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(36, 59, 53, 0.82);
     font-size: 14px;
     font-weight: 700;
     line-height: 1.35;
@@ -150,10 +177,10 @@
   &__certModalContent {
     width: fit-content;
     max-width: calc(100vw - 32px);
-    background: rgba(9, 14, 26, 0.96);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(31, 92, 79, 0.16);
+    color: var(--text);
+    box-shadow: 0 24px 80px rgba(56, 103, 91, 0.24);
   }
 
   &__certModalContent .modal-body {
@@ -169,7 +196,7 @@
     max-height: calc(100vh - 160px);
     object-fit: contain;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.28);
+    background: rgba(247, 251, 248, 0.92);
   }
 
   &__certModalContent .mediaLoader {
@@ -194,7 +221,7 @@
     aspect-ratio: 16 / 9;
     object-fit: contain;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(23, 66, 56, 0.08);
   }
 
   &__video .mediaLoader {
@@ -204,6 +231,7 @@
   &__videoTitle {
     font-weight: 800;
     margin-bottom: 8px;
+    color: #173b34;
   }
 
   &__list {
@@ -211,7 +239,7 @@
     padding-left: 18px;
     display: grid;
     gap: 6px;
-    opacity: 0.85;
+    color: rgba(36, 59, 53, 0.76);
   }
 
   &__head {
@@ -226,9 +254,9 @@
     font-size: 12px;
     padding: 6px 10px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    color: rgba(255, 255, 255, 0.82);
+    background: rgba(85, 200, 166, 0.12);
+    border: 1px solid rgba(85, 200, 166, 0.2);
+    color: var(--accent-ink);
     white-space: nowrap;
   }
 
@@ -241,17 +269,18 @@
   &__item {
     border-radius: 14px;
     padding: 14px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(31, 92, 79, 0.12);
   }
 
   &__itemTitle {
     font-weight: 800;
     margin-bottom: 4px;
+    color: #173b34;
   }
 
   &__itemText {
-    opacity: 0.8;
+    color: rgba(36, 59, 53, 0.72);
     font-size: 14px;
     margin-bottom: 10px;
   }

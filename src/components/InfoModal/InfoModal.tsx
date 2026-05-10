@@ -14,21 +14,12 @@ export function InfoModal({
       {/* Триггер */}
       <button
         type="button"
-        className="btn btn-link p-0 text-decoration-none d-inline-flex align-items-center gap-2"
+        className="neuro-help btn btn-link p-0 text-decoration-none d-inline-flex align-items-center gap-2"
         data-bs-toggle="modal"
         data-bs-target={`#${id}`}
-        style={{ color: 'rgba(255,255,255,0.78)' }}
       >
         <span
-          className="d-inline-flex align-items-center justify-content-center"
-          style={{
-            width: 18,
-            height: 18,
-            borderRadius: 999,
-            border: '1px solid rgba(255,255,255,0.22)',
-            fontSize: 12,
-            lineHeight: 1,
-          }}
+          className="neuro-help__icon d-inline-flex align-items-center justify-content-center"
           aria-hidden="true"
         >
           ?
@@ -48,7 +39,7 @@ export function InfoModal({
               </h5>
               <button
                 type="button"
-                className="btn-close btn-close-white"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               />
@@ -100,7 +91,7 @@ export function InfoModal({
               <a className="btn btn-primary" href="#contacts" data-bs-dismiss="modal">
                 Записаться
               </a>
-              <button type="button" className="btn btn-outline-light" data-bs-dismiss="modal">
+              <button type="button" className="btn btn-outline-secondary" data-bs-dismiss="modal">
                 Понятно
               </button>
             </div>

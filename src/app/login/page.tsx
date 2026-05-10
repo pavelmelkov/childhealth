@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { getServerSession } from 'next-auth';
+import { notFound } from 'next/navigation';
 import { redirect } from 'next/navigation';
 
-import { authOptions } from '@/auth/options';
 import { LoginForm } from '@/components/Auth/LoginForm';
+import { CABINET_ENABLED } from '@/lib/features';
 
 export const metadata: Metadata = {
   title: 'Вход',
@@ -14,6 +14,14 @@ export const metadata: Metadata = {
 };
 
 export default async function LoginPage() {
+  if (!CABINET_ENABLED) {
+    notFound();
+  }
+
+  const [{ getServerSession }, { authOptions }] = await Promise.all([
+    import('next-auth'),
+    import('@/auth/options'),
+  ]);
   const session = await getServerSession(authOptions);
 
   if (session?.user) {

@@ -4,8 +4,12 @@
   &__box {
     position: relative;
     border-radius: 22px;
-    padding: 26px;
+    padding: 30px;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 18px;
   }
 
   &__box::before {
@@ -14,28 +18,34 @@
     inset: 0;
     pointer-events: none;
     background:
-      radial-gradient(420px 180px at 12% 0%, rgba(125, 223, 195, 0.18), transparent 70%),
-      radial-gradient(420px 180px at 88% 100%, rgba(240, 176, 143, 0.16), transparent 70%);
+      radial-gradient(420px 180px at 12% 0%, rgba(85, 200, 166, 0.2), transparent 70%),
+      radial-gradient(420px 180px at 88% 100%, rgba(243, 154, 107, 0.18), transparent 70%);
   }
 
   &__title {
     position: relative;
+    grid-column: 1;
     margin: 0 0 10px;
     font-weight: 800;
+    color: #173b34;
   }
 
   &__text {
     position: relative;
-    margin: 0 0 16px;
-    opacity: 0.85;
+    grid-column: 1;
+    margin: 0;
+    color: rgba(36, 59, 53, 0.76);
     font-size: 18px;
   }
 
   &__actions {
     position: relative;
+    grid-column: 2;
+    grid-row: 1 / span 2;
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    justify-content: flex-end;
   }
 
   &__hint {
@@ -49,21 +59,28 @@
     &__box {
       padding: 18px;
       border-radius: 14px;
+      grid-template-columns: 1fr;
+      align-items: stretch;
     }
 
     &__title {
+      grid-column: auto;
       font-size: 26px;
       line-height: 1.2;
     }
 
     &__text {
+      grid-column: auto;
       font-size: 16px;
       line-height: 1.5;
     }
 
     &__actions {
+      grid-column: auto;
+      grid-row: auto;
       display: grid;
       grid-template-columns: 1fr;
+      justify-content: stretch;
     }
 
     &__actions .btn {

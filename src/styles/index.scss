@@ -13,20 +13,21 @@
 @use '../views/NotFoundPage';
 
 :root {
-  --bg-0: #08111f;
-  --bg-1: #101928;
-  --bg-2: #14251f;
-  --surface: rgba(255, 255, 255, 0.095);
-  --surface-strong: rgba(255, 255, 255, 0.14);
-  --stroke: rgba(255, 255, 255, 0.17);
-  --stroke-strong: rgba(255, 255, 255, 0.28);
-  --glow-a: rgba(99, 102, 241, 0.35);  /* индиго */
-  --glow-b: rgba(34, 197, 94, 0.25);   /* зелёный */
-  --glow-c: rgba(56, 189, 248, 0.18);  /* голубой */
-  --accent-warm: #f0b08f;
-  --accent-mint: #7ddfc3;
-  --accent-blue: #8fb8ff;
-  --text: rgba(255, 255, 255, 0.92);
+  --bg-0: #f7fbf8;
+  --bg-1: #eaf6ef;
+  --bg-2: #fff6ee;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --stroke: rgba(31, 92, 79, 0.13);
+  --stroke-strong: rgba(31, 92, 79, 0.24);
+  --glow-a: rgba(99, 198, 172, 0.24);
+  --glow-b: rgba(250, 170, 124, 0.22);
+  --glow-c: rgba(93, 156, 236, 0.16);
+  --accent-warm: #f39a6b;
+  --accent-mint: #55c8a6;
+  --accent-blue: #5d9cec;
+  --accent-ink: #174238;
+  --text: #243b35;
   --nav-offset: 96px;
 }
 
@@ -51,14 +52,11 @@ header[id],
 body {
   color: var(--text);
   background:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    radial-gradient(900px 600px at 16% 8%, var(--glow-a), transparent 62%),
-    radial-gradient(780px 560px at 86% 12%, var(--glow-b), transparent 60%),
-    radial-gradient(820px 620px at 54% 92%, var(--glow-c), transparent 60%),
-    linear-gradient(140deg, var(--bg-0), var(--bg-1) 48%, var(--bg-2));
+    radial-gradient(820px 520px at 12% 8%, var(--glow-a), transparent 66%),
+    radial-gradient(760px 500px at 88% 10%, var(--glow-b), transparent 62%),
+    radial-gradient(720px 540px at 54% 92%, var(--glow-c), transparent 64%),
+    linear-gradient(145deg, var(--bg-0), var(--bg-1) 52%, var(--bg-2));
   background-attachment: fixed;
-  background-size: 42px 42px, 42px 42px, auto, auto, auto, auto;
   min-height: 100vh;
 }
 
@@ -69,9 +67,10 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 18%, transparent 74%, rgba(0, 0, 0, 0.18)),
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.13), transparent 34%);
-  mix-blend-mode: screen;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), transparent 28%, transparent 76%, rgba(255, 246, 238, 0.55)),
+    linear-gradient(rgba(31, 92, 79, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 92, 79, 0.03) 1px, transparent 1px);
+  background-size: auto, 44px 44px, 44px 44px;
 }
 
 html {
@@ -96,6 +95,29 @@ video {
 
 .btn {
   white-space: normal;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--accent-mint);
+  --bs-btn-border-color: var(--accent-mint);
+  --bs-btn-hover-bg: #42b894;
+  --bs-btn-hover-border-color: #42b894;
+  --bs-btn-active-bg: #379f82;
+  --bs-btn-active-border-color: #379f82;
+  --bs-btn-color: #08372d;
+  --bs-btn-hover-color: #08372d;
+  box-shadow: 0 14px 30px rgba(85, 200, 166, 0.28);
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: var(--accent-ink);
+  --bs-btn-border-color: rgba(23, 66, 56, 0.24);
+  --bs-btn-hover-bg: rgba(255, 255, 255, 0.82);
+  --bs-btn-hover-border-color: rgba(23, 66, 56, 0.34);
+  --bs-btn-hover-color: var(--accent-ink);
+  background: rgba(255, 255, 255, 0.52);
 }
 
 /* чтобы секции не "липли" к верхней кромке */
@@ -134,42 +156,42 @@ section, header {
 .services__card.card-glass,
 .contacts__box.card-glass {
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07)),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.68)),
     var(--surface);
   border: 1px solid var(--stroke);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text);
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
   will-change: transform;
   box-shadow:
-    0 18px 48px rgba(0, 0, 0, 0.25),
-    0 1px 0 rgba(255, 255, 255, 0.11) inset;
+    0 18px 48px rgba(56, 103, 91, 0.13),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
 
 .hero__card.card-glass p,
 .services__card.card-glass p,
 .hero__card.card-glass li,
 .services__card.card-glass li {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(36, 59, 53, 0.78);
 }
 .card-glass:hover {
   transform: translateY(-3px);
   border-color: var(--stroke-strong);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08)),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.78)),
     var(--surface-strong);
   box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.34),
-    0 0 0 1px rgba(143, 184, 255, 0.12) inset;
+    0 24px 64px rgba(56, 103, 91, 0.18),
+    0 0 0 1px rgba(85, 200, 166, 0.12) inset;
 }
 
 /* Если карточка кликабельная (ссылка/кнопка внутри), сделаем фокус тоже красивым */
 .card-glass:focus-within {
-  border-color: rgba(255, 255, 255, 0.34);
+  border-color: rgba(85, 200, 166, 0.42);
   box-shadow:
-    0 22px 55px rgba(0, 0, 0, 0.36),
-    0 0 0 3px rgba(59, 130, 246, 0.22);
+    0 22px 55px rgba(56, 103, 91, 0.18),
+    0 0 0 3px rgba(85, 200, 166, 0.2);
 }
 
 /* Микроэффект: чуть “подсветить” номер шага в Process */
