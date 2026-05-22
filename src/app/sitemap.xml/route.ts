@@ -1,25 +1,34 @@
 export const dynamic = 'force-static';
 
+const lastModified = new Date().toISOString();
+
+const routes = [
+  {
+    url: 'https://veraneuro.site/',
+    priority: '1',
+  },
+  {
+    url: 'https://veraneuro.site/docs/',
+    priority: '0.7',
+  },
+  {
+    url: 'https://veraneuro.site/reviews/',
+    priority: '0.7',
+  },
+];
+
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://veraneuro.site/</loc>
-    <lastmod>2024-05-22T16:42:00.403Z</lastmod>
+${routes
+  .map(
+    (route) => `  <url>
+    <loc>${route.url}</loc>
+    <lastmod>${lastModified}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>https://veraneuro.site/docs/</loc>
-    <lastmod>2024-05-22T16:42:00.403Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://veraneuro.site/reviews/</loc>
-    <lastmod>2024-05-22T16:42:00.403Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+    <priority>${route.priority}</priority>
+  </url>`,
+  )
+  .join('\n')}
 </urlset>
 `;
 
