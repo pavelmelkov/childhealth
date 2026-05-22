@@ -48,6 +48,18 @@
     justify-content: flex-end;
   }
 
+  & &__maxButton {
+    --bs-btn-bg: #4db4ff;
+    --bs-btn-border-color: #4db4ff;
+    --bs-btn-hover-bg: #2fa5f7;
+    --bs-btn-hover-border-color: #2fa5f7;
+    --bs-btn-active-bg: #168bdd;
+    --bs-btn-active-border-color: #168bdd;
+    --bs-btn-color: #ffffff;
+    --bs-btn-hover-color: #ffffff;
+    box-shadow: 0 14px 30px rgba(77, 180, 255, 0.28);
+  }
+
   &__hint {
     margin: 14px 0 0;
     opacity: 0.6;

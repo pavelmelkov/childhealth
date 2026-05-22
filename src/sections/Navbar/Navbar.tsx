@@ -1,21 +1,42 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useState } from 'react';
-import { CABINET_ENABLED } from '@/lib/features';
-import { publicPath } from '@/lib/publicPath';
+import Link from "next/link";
+import { useState } from "react";
+import { SessionProvider, useSession } from "next-auth/react";
+
+import { CABINET_ENABLED } from "@/lib/features";
+import { publicPath } from "@/lib/publicPath";
 
 const NAV_LINKS = [
-  { href: '/#top', label: 'Главная' },
-  { href: '/#contacts', label: 'Контакты' },
+  { href: "/#top", label: "Главная" },
+  { href: "/#support", label: "VeraNeuro" },
+  { href: "/#contacts", label: "Контакты" },
   // { href: '/prices', label: 'Цены' },
-  { href: '/docs/', label: 'Документы' },
-  { href: '/reviews/', label: 'Отзывы' },
-  ...(CABINET_ENABLED ? [{ href: '/login', label: 'Вход' }] : []),
+  { href: "/docs/", label: "Документы" },
+  { href: "/reviews/", label: "Отзывы" },
 ];
 
-export function Navbar() {
+function getAccountLink(role?: "admin" | "parent") {
+  if (!CABINET_ENABLED) {
+    return null;
+  }
+
+  if (role === "admin") {
+    return { href: "/admin", label: "Админка" };
+  }
+
+  if (role === "parent") {
+    return { href: "/cabinet", label: "Личный кабинет" };
+  }
+
+  return { href: "/login", label: "Вход" };
+}
+
+function NavbarContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data: session } = useSession();
+  const accountLink = getAccountLink(session?.user?.role);
+  const navLinks = accountLink ? [...NAV_LINKS, accountLink] : NAV_LINKS;
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -29,11 +50,15 @@ export function Navbar() {
             <picture className="navwrap__logoWrap">
               <source
                 media="(max-width: 767.98px)"
-                srcSet={encodeURI(publicPath('/about/ChatGPT Image 9 мая 2026 г., 09_05_08.png'))}
+                srcSet={encodeURI(
+                  publicPath(
+                    "/about/ChatGPT Image 9 мая 2026 г., 09_05_08.png",
+                  ),
+                )}
               />
               <img
                 className="navwrap__logo"
-                src={publicPath('/about/logo-desktop-cropped.png')}
+                src={publicPath("/about/logo-desktop-cropped.png")}
                 alt=""
               />
             </picture>
@@ -44,7 +69,7 @@ export function Navbar() {
           </Link>
 
           <div className="navwrap__links">
-            {NAV_LINKS.map((link) => (
+            {navLinks.map((link) => (
               <Link className="navwrap__link" href={link.href} key={link.href}>
                 {link.label}
               </Link>
@@ -54,9 +79,7 @@ export function Navbar() {
           <div className="navwrap__actions">
             <a
               className="btn btn-primary navwrap__cta"
-              href="https://t.me/Vera37467"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/#contacts"
             >
               Записаться
             </a>
@@ -75,8 +98,11 @@ export function Navbar() {
             <span />
           </button>
 
-          <div className={`collapse navwrap__mobileMenu${isMenuOpen ? ' show' : ''}`} id="mainNavMenu">
-            {NAV_LINKS.map((link) => (
+          <div
+            className={`collapse navwrap__mobileMenu${isMenuOpen ? " show" : ""}`}
+            id="mainNavMenu"
+          >
+            {navLinks.map((link) => (
               <Link
                 className="navwrap__mobileLink"
                 href={link.href}
@@ -88,9 +114,7 @@ export function Navbar() {
             ))}
             <a
               className="btn btn-primary navwrap__mobileCta"
-              href="https://t.me/Vera37467"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/#contacts"
               onClick={closeMenu}
             >
               Записаться
@@ -99,5 +123,13 @@ export function Navbar() {
         </div>
       </nav>
     </div>
+  );
+}
+
+export function Navbar() {
+  return (
+    <SessionProvider>
+      <NavbarContent />
+    </SessionProvider>
   );
 }
