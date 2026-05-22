@@ -1,29 +1,27 @@
 import type { MetadataRoute } from 'next';
 
-import { SITE_URL } from '@/lib/seo';
-
 export const dynamic = 'force-static';
+
+const lastModified = new Date('2024-05-22T16:42:00.403Z');
 
 const routes = [
   {
-    path: '/',
+    url: 'https://veraneuro.site/',
     priority: 1,
   },
   {
-    path: '/docs/',
+    url: 'https://veraneuro.site/docs/',
     priority: 0.7,
   },
   {
-    path: '/reviews/',
+    url: 'https://veraneuro.site/reviews/',
     priority: 0.7,
   },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
   return routes.map((route) => ({
-    url: new URL(route.path, SITE_URL).toString(),
+    url: route.url,
     lastModified,
     changeFrequency: 'monthly',
     priority: route.priority,
