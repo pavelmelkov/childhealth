@@ -10,14 +10,6 @@ export function Contacts() {
 
           <div className="contacts__actions">
             <a
-              className="btn btn-primary btn-lg"
-              href="https://t.me/Vera37467"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Написать в Telegram
-            </a>
-            <a
               className="btn btn-primary btn-lg contacts__maxButton"
               href="https://max.ru/u/f9LHodD0cOIRg84wYogtJg9gwalnHbxyLzXa5hnwzugCLyhu0PVExdrTcus"
               target="_blank"

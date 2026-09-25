@@ -11,7 +11,6 @@ import {
   SITE_NAME,
   SITE_URL,
   SPECIALIST_NAME,
-  TELEGRAM_URL,
 } from '@/lib/seo';
 import { BootstrapClient } from './providers/BootstrapClient';
 
@@ -70,7 +69,6 @@ const jsonLd = {
       url: SITE_URL,
       image: `${SITE_URL}/about/about.jpg`,
       telephone: CONTACT_PHONE,
-      sameAs: [TELEGRAM_URL],
       knowsAbout: SEO_KEYWORDS,
       worksFor: {
         '@id': `${SITE_URL}/#service`,

@@ -35,7 +35,7 @@ export default function ReviewsPage() {
         </div>
         <div className="reviews__note card-glass">
           <h2 className="reviews__noteTitle">Хотите добавить отзыв?</h2>
-          <p className="reviews__noteText">Можно прислать текст в Telegram. Размещу его на сайте с вашего разрешения, без персональных данных ребёнка.</p>
+          <p className="reviews__noteText">Можно прислать текст в MAX. Размещу его на сайте с вашего разрешения, без персональных данных ребёнка.</p>
           <Link className="btn btn-outline-secondary" href="/#contacts">Перейти к контактам</Link>
         </div>
       </div>

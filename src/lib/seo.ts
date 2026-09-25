@@ -19,5 +19,3 @@ export const SEO_KEYWORDS = [
 ];
 
 export const CONTACT_PHONE = '+79529871480';
-
-export const TELEGRAM_URL = 'https://t.me/Vera37467';
