@@ -4,7 +4,8 @@ import { publicPath } from '@/lib/publicPath';
 
 type Certificate = {
   id: string;
-  title: string;
+  details: string;
+  note?: string;
   label: string;
   src: string;
   featured?: boolean;
@@ -13,40 +14,40 @@ type Certificate = {
 const CERTIFICATES: Certificate[] = [
   {
     id: 'cert1Modal',
-    title: 'Сертификат 1',
+    details: 'Сертификат · Ассоциация нейропсихологов и психотерапевтов, Нейропсихологический центр адаптации и саморегуляции · 2024 · 63 академических часа',
     label: 'Психомоторная нейропсихологическая коррекция',
     src: publicPath('/docs/sert1.jpg'),
   },
   {
     id: 'cert2Modal',
-    title: 'Сертификат 2',
-    label: 'Метод сохранения: телесно-ориентированная терапия',
+    details: 'Удостоверение о повышении квалификации · Учебный центр «ПРОФИ» · 2026 · 36 часов',
+    label: 'Психология. Метод Со-творение Максимовой Е.В. (телесно-ориентированная терапия с опорой на теорию построения движений Н. А. Бернштейна). Модуль 1. Знакомство с методом',
     src: publicPath('/docs/sert2.jpg'),
   },
   {
     id: 'cert3Modal',
-    title: 'Сертификат 3',
+    details: 'Сертификат · Межрегиональная Академия Профессионального Роста · 2024 · 16 часов',
     label: 'Массаж шейно-воротниковой зоны и точечный массаж в логопедии',
     src: publicPath('/docs/sert3.jpg'),
   },
   {
     id: 'cert4Modal',
-    title: 'Сертификат 4',
+    details: 'Сертификат · Межрегиональная Академия Профессионального Роста · 2023 · 40 часов',
     label: 'Диагностика и интеграция примитивных рефлексов',
     src: publicPath('/docs/sert4.jpg'),
   },
   {
     id: 'cert5Modal',
-    title: 'Сертификат 5',
-    label: 'Нейропсихологические и логопедические технологии',
+    details: 'Сертификат · Центр социально-гуманитарного образования · 2022 · 40 часов',
+    label: 'Интеграция нейропсихологических и логопедических технологий. Модули метода замещающего онтогенеза',
     src: publicPath('/docs/sert5.jpg'),
   },
   {
     id: 'cert6Modal',
-    title: 'Сертификат 6',
-    label: 'INPP: нейромоторная готовность к обучению',
+    details: 'Сертификат · The Institute for Neuro-Physiological Psychology (INPP) · однодневный курс',
+    label: 'Assessing Neuromotor Readiness for Learning — The INPP Screening Test and School Intervention Programme',
     src: publicPath('/docs/sert6.jpg'),
-    featured: true,
+    note: 'Курс по использованию пособия об оценке нейромоторной готовности к обучению. В сертификате указано: он не даёт квалификации практикующего специалиста INPP, права обучать других или применять упражнения вне предусмотренного программой контекста.',
   },
 ];
 
@@ -61,20 +62,9 @@ export default function LegalPage() {
           </Link>
         </div>
 
-        {/* <section className="docs__section card-glass">
-          <h2 className="docs__h2">Оферта (условия оказания услуг)</h2>
-          <p className="docs__p">
-            Здесь размещаем публичную оферту: предмет, стоимость/оплата,
-            переносы/отмена, ответственность, порядок оказания услуг, контакты
-            исполнителя.
-          </p>
-          <a className="btn btn-primary" href={publicPath('/docs/oferta.pdf')} download>
-            Скачать PDF оферты
-          </a>
-        </section> */}
-
         <section className="docs__section card-glass">
-          <h2 className="docs__h2">Сертификаты и квалификация</h2>
+          <h2 className="docs__h2">Дополнительное обучение</h2>
+          <p className="docs__p">Сертификаты семинаров и удостоверение о повышении квалификации. В карточках указаны сведения из документов.</p>
           <p className="docs__clickHint">Нажмите, чтобы увеличить</p>
 
           <div className="docs__grid">
@@ -88,25 +78,27 @@ export default function LegalPage() {
                   className="docs__certButton"
                   data-bs-toggle="modal"
                   data-bs-target={`#${certificate.id}`}
-                  aria-label={`Увеличить ${certificate.label.toLowerCase()}`}
+                  aria-label={`Открыть документ: ${certificate.label}`}
                 >
                   <figure className="about__photo card-glass">
                     <ImageWithLoader
                       src={certificate.src}
-                      alt={`Мелкова Вера Александровна, ${certificate.label.toLowerCase()}`}
+                      alt={`Мелкова Вера Александровна — ${certificate.label}`}
                       loading="lazy"
                       loaderLabel="Загрузка сертификата"
                     />
                   </figure>
                   <span className="docs__certTitle">{certificate.label}</span>
                 </button>
+                <p className="docs__p mt-3">{certificate.details}</p>
+                {certificate.note && <p className="docs__p">{certificate.note}</p>}
               </div>
             ))}
           </div>
         </section>
 
         <section className="docs__section card-glass">
-          <h2 className="docs__h2">Видео с занятий (лица размыты)</h2>
+          <h2 className="docs__h2">Материалы о занятиях</h2>
           <p className="docs__p">
             Публикуются только при наличии согласия
             родителей/законных представителей.
@@ -130,7 +122,7 @@ export default function LegalPage() {
 
         <section className="docs__section card-glass">
           <div className="docs__head">
-            <h2 className="docs__h2 m-0">Конфиденциальность и согласия</h2>
+            <h2 className="docs__h2 m-0">Документы для родителей</h2>
             <span className="docs__badge">юридические документы</span>
           </div>
 
@@ -141,7 +133,7 @@ export default function LegalPage() {
 
           <div className="docs__listGrid">
             <div className="docs__item">
-              <div className="docs__itemTitle">Согласие на обработку ПДн</div>
+              <div className="docs__itemTitle">Согласие на обработку персональных данных</div>
               <div className="docs__itemText" />
               <div className="docs__itemActions">
                 <a className="btn btn-outline-secondary btn-sm" href={publicPath('/docs/consent_pd.pdf')} download>
@@ -151,9 +143,9 @@ export default function LegalPage() {
             </div>
 
             <div className="docs__item">
-              <div className="docs__itemTitle">Согласие на фото/видео</div>
+              <div className="docs__itemTitle">Согласие на фото- и видеосъёмку</div>
               <div className="docs__itemText">
-                В процессе занятий с целью фиксации прогресса
+                Условия использования фото и видео указаны в документе
               </div>
               <div className="docs__itemActions">
                 <a className="btn btn-outline-secondary btn-sm" href={publicPath('/docs/consent_media.pdf')} download>
@@ -190,7 +182,7 @@ export default function LegalPage() {
               <div className="modal-body">
                 <ImageWithLoader
                   src={certificate.src}
-                  alt={`Мелкова Вера Александровна, ${certificate.label.toLowerCase()}`}
+                  alt={`Мелкова Вера Александровна — ${certificate.label}`}
                   loaderLabel="Загрузка сертификата"
                 />
               </div>

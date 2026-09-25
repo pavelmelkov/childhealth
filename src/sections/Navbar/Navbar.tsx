@@ -2,41 +2,20 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { SessionProvider, useSession } from "next-auth/react";
 
-import { CABINET_ENABLED } from "@/lib/features";
 import { publicPath } from "@/lib/publicPath";
 
 const NAV_LINKS = [
   { href: "/#top", label: "Главная" },
-  { href: "/#support", label: "VeraNeuro" },
+  { href: "/#about", label: "О Вере" },
+  { href: "/#process", label: "Первая встреча" },
   { href: "/#contacts", label: "Контакты" },
-  // { href: '/prices', label: 'Цены' },
   { href: "/docs/", label: "Документы" },
   { href: "/reviews/", label: "Отзывы" },
 ];
 
-function getAccountLink(role?: "admin" | "parent") {
-  if (!CABINET_ENABLED) {
-    return null;
-  }
-
-  if (role === "admin") {
-    return { href: "/admin", label: "Админка" };
-  }
-
-  if (role === "parent") {
-    return { href: "/cabinet", label: "Личный кабинет" };
-  }
-
-  return { href: "/login", label: "Вход" };
-}
-
-function NavbarContent() {
+export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { data: session } = useSession();
-  const accountLink = getAccountLink(session?.user?.role);
-  const navLinks = accountLink ? [...NAV_LINKS, accountLink] : NAV_LINKS;
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -64,12 +43,12 @@ function NavbarContent() {
             </picture>
             <div className="navwrap__brandText">
               <div className="navwrap__name">Мелкова Вера Александровна</div>
-              <div className="navwrap__role">Специалист по нейрокоррекции</div>
+              <div className="navwrap__role">Занятия с детьми · Майкоп</div>
             </div>
           </Link>
 
           <div className="navwrap__links">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link className="navwrap__link" href={link.href} key={link.href}>
                 {link.label}
               </Link>
@@ -81,7 +60,7 @@ function NavbarContent() {
               className="btn btn-primary navwrap__cta"
               href="/#contacts"
             >
-              Записаться
+              Связаться
             </a>
           </div>
 
@@ -91,7 +70,7 @@ function NavbarContent() {
             onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
             aria-controls="mainNavMenu"
             aria-expanded={isMenuOpen}
-            aria-label="Открыть меню"
+            aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
           >
             <span />
             <span />
@@ -102,7 +81,7 @@ function NavbarContent() {
             className={`collapse navwrap__mobileMenu${isMenuOpen ? " show" : ""}`}
             id="mainNavMenu"
           >
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link
                 className="navwrap__mobileLink"
                 href={link.href}
@@ -117,19 +96,11 @@ function NavbarContent() {
               href="/#contacts"
               onClick={closeMenu}
             >
-              Записаться
+              Связаться
             </a>
           </div>
         </div>
       </nav>
     </div>
-  );
-}
-
-export function Navbar() {
-  return (
-    <SessionProvider>
-      <NavbarContent />
-    </SessionProvider>
   );
 }

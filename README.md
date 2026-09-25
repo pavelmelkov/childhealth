@@ -1,73 +1,43 @@
-# React + TypeScript + Vite
+# VeraNeuro — публичный сайт
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Next.js, React, TypeScript и SCSS. Публичные страницы: главная, отзывы и документы.
+Вход, регистрация, кабинет, серверные API и блок планов исключены из текущего приложения.
 
-Currently, two official plugins are available:
+## Локальный просмотр
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Из корня проекта:
 
-## React Compiler
+    npm ci
+    npm run dev -- --hostname 127.0.0.1
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Откройте http://127.0.0.1:3000. Если зависимости уже установлены, достаточно второй команды.
+Скрипты запускают Next.js через Node.js, поэтому работают и из папки с пробелами и символом &.
 
-## Expanding the ESLint configuration
+## Проверки и публикация
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+    npm run lint
+    npm run check:public
+    npm run build:pages
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Последняя команда создаёт статический сайт в out/ и проверяет отсутствие закрытых маршрутов,
+приватных файлов и блока планов. Ничего не отправляет в GitHub.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+GitHub Actions в .github/workflows/pages.yml собирает и публикует out/ после push в main.
+Перед push проверьте git diff и git diff --cached. В этой редакции есть удаления ранее
+отслеживаемых файлов кабинета: включите их в будущий коммит вместе с изменениями сайта.
+Один .gitignore не удаляет ранее закоммиченные файлы и не очищает историю.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Где редактировать тексты
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- src/sections/ — главная, меню, контакты и пояснения.
+- src/content/public-copy.ts — полные и короткие пересказы отзывов, FAQ.
+- src/views/LegalPage.tsx — документы и материалы.
+- src/lib/seo.ts и src/app/*/page.tsx — метаданные.
+- docs/content-rebuild/ — основания правок, вопросы Вере и результаты проверок.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Исходные отзывы, документы и медиа находятся в public/. Внутренние материалы туда не помещаются.
+Локальные резервные копии и работа над кабинетом сохранены в private/; этот каталог
+исключён из Git, TypeScript и ESLint. Не используйте git add -f для его добавления.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Для статического сайта секреты и подключение к базе не нужны. .env.example содержит только
+необязательные публичные настройки домена и базового пути.

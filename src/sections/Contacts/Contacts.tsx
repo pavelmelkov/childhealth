@@ -5,8 +5,7 @@ export function Contacts() {
         <div className="contacts__box card-glass">
           <h2 className="contacts__title">Запись и вопросы</h2>
           <p className="contacts__text">
-            Напишите удобным способом — отвечу, уточню запрос и предложу формат
-            занятий.
+            Напишите, чтобы задать вопрос или договориться о первой встрече.
           </p>
 
           <div className="contacts__actions">
@@ -16,7 +15,7 @@ export function Contacts() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Telegram
+              Написать в Telegram
             </a>
             <a
               className="btn btn-primary btn-lg contacts__maxButton"
@@ -24,7 +23,7 @@ export function Contacts() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              MAX
+              Написать в MAX
             </a>
 
             <a

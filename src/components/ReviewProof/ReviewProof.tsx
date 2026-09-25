@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import { ImageWithLoader } from '@/components/MediaLoader/MediaLoader';
 
@@ -10,25 +10,27 @@ type Props = {
   screenshotSrc?: string;
 };
 
+const subscribe = () => () => {};
+const clientSnapshot = () => true;
+const serverSnapshot = () => false;
+
 export function ReviewProof({ id, name, screenshotSrc }: Props) {
   const [imageReady, setImageReady] = useState(Boolean(screenshotSrc));
-  const portalRoot = typeof document === 'undefined' ? null : document.body;
+  const mounted = useSyncExternalStore(subscribe, clientSnapshot, serverSnapshot);
+  const portalRoot = mounted ? document.body : null;
 
   if (!screenshotSrc || !imageReady) {
-    return (
-      <div className="reviews__proof reviews__proof--empty">
-        <div className="reviews__proofLabel">Скрин отзыва</div>
-        <div className="reviews__proofText">Можно добавить изображение</div>
-      </div>
-    );
+    return screenshotSrc ? (
+      <a href={screenshotSrc} target="_blank" rel="noopener noreferrer">Открыть оригинал отзыва</a>
+    ) : null;
   }
 
   const modal = (
-    <div className="modal fade reviews__proofModalLayer" id={id} tabIndex={-1} aria-hidden="true">
+    <div className="modal fade reviews__proofModalLayer" id={id} tabIndex={-1} aria-labelledby={`${id}Title`} aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered reviews__proofModal">
         <div className="modal-content reviews__proofModalContent">
           <div className="modal-header">
-            <h5 className="modal-title">Скрин отзыва</h5>
+            <h2 className="modal-title fs-5" id={`${id}Title`}>Оригинал отзыва</h2>
             <button
               type="button"
               className="btn-close"
@@ -39,8 +41,8 @@ export function ReviewProof({ id, name, screenshotSrc }: Props) {
           <div className="modal-body">
             <ImageWithLoader
               src={screenshotSrc}
-              alt={`Скрин отзыва: ${name}`}
-              loaderLabel="Загрузка скрина"
+              alt={`Оригинал отзыва: ${name}`}
+              loaderLabel="Загрузка оригинала"
             />
           </div>
         </div>
@@ -55,16 +57,16 @@ export function ReviewProof({ id, name, screenshotSrc }: Props) {
         className="reviews__proof reviews__proofButton"
         data-bs-toggle="modal"
         data-bs-target={`#${id}`}
-        aria-label={`Открыть скрин отзыва: ${name}`}
+        aria-label={`Открыть оригинал отзыва: ${name}`}
       >
         <ImageWithLoader
           src={screenshotSrc}
-          alt={`Скрин отзыва: ${name}`}
+          alt={`Оригинал отзыва: ${name}`}
           loading="lazy"
-          loaderLabel="Загрузка скрина"
+          loaderLabel="Загрузка оригинала"
           onError={() => setImageReady(false)}
         />
-        <span className="reviews__proofOverlay">Открыть скрин</span>
+        <span className="reviews__proofOverlay">Открыть оригинал</span>
       </button>
 
       {portalRoot ? createPortal(modal, portalRoot) : null}

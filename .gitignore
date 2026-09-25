@@ -13,6 +13,7 @@ out
 dist
 dist-ssr
 *.local
+private/
 
 # Editor directories and files
 .vscode/*
@@ -24,3 +25,45 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Private work and generated TypeScript caches
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+/tatus
+/commands.md
+
+# Local account/backend work is archived under private/, never part of this site.
+/src/app/login/
+/src/app/register/
+/src/app/admin/
+/src/app/cabinet/
+/src/app/api/
+/src/auth/
+/src/db/
+/src/components/Auth/
+/src/components/Admin/
+/src/components/Cabinet/
+/src/sections/Support/
+/src/styles/auth-dashboard.scss
+/src/types/next-auth.d.ts
+/src/lib/features.ts
+/src/lib/push.ts
+/src/lib/schedule.ts
+/src/lib/modules.ts
+/src/lib/module-settings.ts
+/src/lib/site-knowledge.ts
+/src/lib/vera-ai.ts
+/middleware.ts
+/proxy.ts
+/drizzle/
+/drizzle.config.ts
+/docker-compose.yml
+/scripts/seed-admin.ts
+/scripts/smoke-db.ts
+/scripts/import-chat-knowledge.ts
+/scripts/import-site-knowledge.ts
+/public/sw.js
+/VPS_DEPLOYMENT_RUNBOOK.md
+/DRIZZLE_POSTGRES_GUIDE.md

@@ -51,7 +51,7 @@
   &__grid {
     display: grid;
     gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     margin-top: 18px;
     align-items: stretch;
     min-width: 0;
@@ -78,17 +78,6 @@
       linear-gradient(145deg, rgba(93, 156, 236, 0.08), transparent 46%, rgba(243, 154, 107, 0.08));
   }
 
-  &__card::after {
-    content: '“';
-    position: absolute;
-    right: 18px;
-    top: 8px;
-    color: rgba(85, 200, 166, 0.16);
-    font-family: Georgia, serif;
-    font-size: 78px;
-    line-height: 1;
-    pointer-events: none;
-  }
 
   &__meta {
     position: relative;
@@ -144,7 +133,8 @@
     background: rgba(85, 200, 166, 0.13);
     border: 1px solid rgba(85, 200, 166, 0.2);
     color: var(--accent-ink);
-    font-size: 12px;
+    font-size: 16px;
+    line-height: 1.35;
     font-weight: 800;
     overflow-wrap: anywhere;
   }

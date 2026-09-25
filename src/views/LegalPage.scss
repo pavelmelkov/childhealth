@@ -73,7 +73,7 @@
     position: relative;
     display: grid;
     gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     min-width: 0;
   }
 
@@ -155,7 +155,7 @@
   &__cert .about__photo img {
     width: 100%;
     height: auto;
-    max-height: 620px;
+    max-height: 320px;
     object-fit: contain;
   }
 
